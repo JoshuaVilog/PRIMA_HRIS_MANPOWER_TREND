@@ -8,6 +8,13 @@ $endDate = $_POST['endDate'];
 
 try {
     $records = EmployeeModel::GetTimekeepingRecords($startDate, $endDate);
+    $employeeRecords = EmployeeModel::DisplayEmployeeRecords();
+
+    $newEmployeeRecords = [];
+    foreach($employeeRecords as $row){
+        $newEmployeeRecords[] = $row;
+    }
+    
     
     $newRecords = [];
     foreach ($records as $row) {
@@ -22,7 +29,7 @@ try {
 }
 
 function setDeptByBioUserID($bioUserID) {
-    $employeeRecords = EmployeeModel::DisplayEmployeeRecords();
+    $employeeRecords = $GLOBALS['newEmployeeRecords'];
 
     foreach ($employeeRecords as $emp) {
         if ($emp['BIO_USER_ID'] == $bioUserID) {

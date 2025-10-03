@@ -62,7 +62,6 @@ class Manpower extends Main{
                         cell.getElement().style.backgroundColor = "#ffffff";
                         return cell.getValue();
                     },},
-                    
                 ];
 
                 columns.push({
